@@ -1,5 +1,5 @@
 import {createRouter, createWebHashHistory} from "vue-router";
-import Home from "../views/Home.vue";
+import Home from "../layout/Home.vue";
 
 const routes = [
     {
@@ -16,7 +16,7 @@ const routes = [
                 meta: {
                     title: '系统首页'
                 },
-                component: () => import ( /* webpackChunkName: "dashboard" */ "../views/Dashboard.vue")
+                component: () => import ( /* webpackChunkName: "dashboard" */ "../views/dashboard/Dashboard.vue")
             }
         ]
     }, {
@@ -25,7 +25,7 @@ const routes = [
         meta: {
             title: '登录'
         },
-        component: () => import ( /* webpackChunkName: "login" */ "../views/Login.vue")
+        component: () => import ( /* webpackChunkName: "login" */ "../views/login/Login.vue")
     }
 ];
 

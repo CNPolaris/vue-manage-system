@@ -19,7 +19,7 @@
                 </div>
                 <!-- 用户头像 -->
                 <div class="user-avator">
-                    <img src="../assets/img/img.jpg" />
+                    <img :src="avatar" />
                 </div>
                 <!-- 用户名下拉菜单 -->
                 <el-dropdown class="user-name" trigger="click" @command="handleCommand">
@@ -48,6 +48,7 @@ import { useRouter } from "vue-router";
 export default {
     setup() {
         const username = localStorage.getItem("ms_username");
+        const avatar = localStorage.getItem("ms_avatar");
         const message = 2;
 
         const sidebar = useSidebarStore();
@@ -76,6 +77,7 @@ export default {
         return {
             sidebar,
             username,
+            avatar,
             message,
             collapseChage,
             handleCommand,

@@ -46,5 +46,24 @@ export default [
                 message: '登录成功'
             }
         }
+    },
+    {
+        url: '/api/user/info',
+        method: 'get',
+
+        response: config=> {
+            const { token } = config.query
+            const info = users[token]
+            if(!info) {
+                return {
+                    code: 1000,
+                    data: undefined
+                }
+            }
+            return {
+                code: 2000,
+                data: info
+            }
+        }
     }
 ] as MockMethod[]
