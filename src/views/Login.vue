@@ -2,16 +2,16 @@
     <div class="login-wrap">
         <div class="ms-login">
             <div class="ms-title">后台管理系统</div>
-            <el-form :model="param" :rules="rules" ref="login" label-width="0px" class="ms-content">
+            <el-form :model="form" :rules="rules" ref="login" label-width="0px" class="ms-content">
                 <el-form-item prop="username">
-                    <el-input v-model="param.username" placeholder="username">
+                    <el-input v-model="form.username" placeholder="username">
                         <template #prepend>
                             <el-button icon="el-icon-user"></el-button>
                         </template>
                     </el-input>
                 </el-form-item>
                 <el-form-item prop="password">
-                    <el-input type="password" placeholder="password" v-model="param.password"
+                    <el-input type="password" placeholder="password" v-model="form.password"
                         @keyup.enter="submitForm()">
                         <template #prepend>
                             <el-button icon="el-icon-lock"></el-button>
@@ -32,13 +32,13 @@ import { ref, reactive } from "vue";
 import { useTagsStore } from '../store/tags'
 import { useRouter } from "vue-router";
 import { ElMessage } from "element-plus";
-
+import { login } from "../api";
 export default {
     setup() {
         const router = useRouter();
-        const param = reactive({
+        const form = reactive({
             username: "admin",
-            password: "123123",
+            password: "123456",
         });
 
         const rules = {
@@ -53,27 +53,34 @@ export default {
                 { required: true, message: "请输入密码", trigger: "blur" },
             ],
         };
-        const login = ref(null);
         const submitForm = () => {
-            login.value.validate((valid) => {
-                if (valid) {
-                    ElMessage.success("登录成功");
-                    localStorage.setItem("ms_username", param.username);
-                    router.push("/");
-                } else {
-                    ElMessage.error("登录成功");
-                    return false;
-                }
-            });
+          login(form).then(re => {
+            if(re.code === 2000){
+              ElMessage.success("登录成功");
+              localStorage.setItem("ms_username", re.data.token);
+              router.push("/");
+            } else {
+              ElMessage.error("登录失败");
+            }
+          })
+            // login.value.validate((valid) => {
+            //     if (valid) {
+            //         ElMessage.success("登录成功");
+            //         localStorage.setItem("ms_username", param.username);
+            //         router.push("/");
+            //     } else {
+            //         ElMessage.error("登录成功");
+            //         return false;
+            //     }
+            // });
         };
 
         const tags = useTagsStore();
         tags.clearTags();
 
         return {
-            param,
+            form,
             rules,
-            login,
             submitForm,
         };
     },
