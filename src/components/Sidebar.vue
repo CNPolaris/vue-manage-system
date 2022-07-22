@@ -42,7 +42,12 @@ export default {
                 icon: "el-icon-lx-home",
                 index: "/dashboard",
                 title: "系统首页",
-            }
+            },
+          {
+            icon: "el-icon-user",
+            index: "/admin/user",
+            title: "用户管理"
+          }
         ];
 
         const route = useRoute();

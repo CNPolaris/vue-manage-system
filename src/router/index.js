@@ -17,6 +17,14 @@ const routes = [
                     title: '系统首页'
                 },
                 component: () => import ( /* webpackChunkName: "dashboard" */ "../views/dashboard/Dashboard.vue")
+            },
+            {
+                path: "/admin/user",
+                name: "adminUser",
+                meta: {
+                    title: "用户列表"
+                },
+                component: () => import("../views/user/alluser.vue")
             }
         ]
     }, {

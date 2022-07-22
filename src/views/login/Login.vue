@@ -32,7 +32,7 @@ import { ref, reactive } from "vue";
 import { useTagsStore } from '../../store/tags'
 import { useRouter } from "vue-router";
 import { ElMessage } from "element-plus";
-import { login, getInfo } from "../../api";
+import { login, getInfo } from "../../api/login";
 export default {
     setup() {
         const router = useRouter();

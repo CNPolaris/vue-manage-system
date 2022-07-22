@@ -29,7 +29,7 @@
                     </span>
                     <template #dropdown>
                         <el-dropdown-menu>
-                            <a href="https://github.com/lin-xin/vue-manage-system" target="_blank">
+                            <a href="https://github.com/CNPolaris/vue-manage-system" target="_blank">
                                 <el-dropdown-item>项目仓库</el-dropdown-item>
                             </a>
                             <el-dropdown-item command="user">个人中心</el-dropdown-item>
@@ -68,6 +68,8 @@ export default {
         const handleCommand = (command) => {
             if (command == "loginout") {
                 localStorage.removeItem("ms_username");
+                localStorage.removeItem("token");
+                localStorage.removeItem("avatar");
                 router.push("/login");
             } else if (command == "user") {
                 router.push("/user");
