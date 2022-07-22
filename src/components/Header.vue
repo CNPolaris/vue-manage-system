@@ -69,7 +69,7 @@ export default {
             if (command == "loginout") {
                 localStorage.removeItem("ms_username");
                 localStorage.removeItem("token");
-                localStorage.removeItem("avatar");
+                localStorage.removeItem("ms_avatar");
                 router.push("/login");
             } else if (command == "user") {
                 router.push("/user");

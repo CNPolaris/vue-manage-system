@@ -25,6 +25,14 @@ const routes = [
                     title: "用户列表"
                 },
                 component: () => import("../views/user/alluser.vue")
+            },
+            {
+                path: "/user",
+                name: "personal",
+                meta: {
+                    title: "个人中心"
+                },
+                component: () => import("../views/profile/User.vue")
             }
         ]
     }, {
