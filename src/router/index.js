@@ -27,6 +27,14 @@ const routes = [
                 component: () => import("../views/user/alluser.vue")
             },
             {
+                path: '/role',
+                name: 'RoleList',
+                meta: {
+                    title: "角色列表"
+                },
+                component: () => import("../views/role/index.vue")
+            },
+            {
                 path: "/user",
                 name: "personal",
                 meta: {

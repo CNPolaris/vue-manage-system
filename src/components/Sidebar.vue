@@ -47,6 +47,11 @@ export default {
             icon: "el-icon-user",
             index: "/admin/user",
             title: "用户管理"
+          },
+          {
+            icon: "el-icon-user",
+            index: "/role",
+            title: "角色管理"
           }
         ];
 
