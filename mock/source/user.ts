@@ -85,18 +85,30 @@ const companies = [
         id: 1,
         name: "北极星科技",
         address: "中国",
+        country: "中国",
+        province: "上海市",
+        city: "",
+        area: "静安区",
         superiorId: null
     },
     {
         id: 2,
         name: "南京分公司",
         address: "南京雨花台区",
+        country: "中国",
+        province: "江苏省",
+        city: "南京市",
+        area: "雨花台区",
         superiorId: 1
     },
     {
         id: 3,
-        name: "上海分公司",
-        address: "上海静安区",
+        name: "北京分公司",
+        address: "北京市朝阳区",
+        country: "中国",
+        province: "北京市",
+        city: "",
+        area: "朝阳区",
         superiorId: 1
     }
 ]
@@ -307,7 +319,7 @@ export default [
                 for(let company of companies){
                     if(company.id == department.companyId){
                         department["company"] = company.name
-                        department["address"] = company.address
+                        department["address"] = company.province + company.city + company.area
                     }
                 }
                 list.push(department)
