@@ -38,6 +38,17 @@
           </template>
         </el-table-column>
       </el-table>
+      <div class="pageModule">
+        <el-pagination
+            small
+            background
+            layout="prev, pager, next"
+            :total="total"
+            class="mt-4"
+            @prev-click="handlePrev"
+            @next-click="handleNext"
+        />
+      </div>
       <el-dialog v-model="editDialogVisible">
         <el-form :model="form">
           <el-form-item label="头像">
@@ -150,6 +161,14 @@ export default {
     handleClear(){
       this.param.username = ''
       this.param.role = ''
+    },
+    handlePrev() {
+      this.param.page --
+      this.getList()
+    },
+    handleNext() {
+      this.param.page ++
+      this.getList()
     }
   }
 }

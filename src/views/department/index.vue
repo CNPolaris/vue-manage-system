@@ -51,7 +51,18 @@
         </template>
       </el-table-column>
     </el-table>
-  </div>
+    <div class="pageModule">
+      <el-pagination
+          small
+          background
+          layout="prev, pager, next"
+          :total="total"
+          class="mt-4"
+          @prev-click="handlePrev"
+          @next-click="handleNext"
+      />
+    </div>
+ </div>
 </template>
 
 <script>
@@ -86,6 +97,14 @@ export default {
         this.list = re.data.list
         ElMessage.success(re.message)
       })
+    },
+    handlePrev() {
+      this.query.page --
+      this.getList()
+    },
+    handleNext() {
+      this.query.page ++
+      this.getList()
     }
   }
 }
