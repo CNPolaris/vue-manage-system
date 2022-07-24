@@ -84,13 +84,4 @@ export default {
 </script>
 
 <style scoped>
-.searchModule{
-  height: 40px;
-}
-.buttonModule{
-  padding-top: 10px;
-}
-.tableModule{
-  padding-top: 10px;
-}
 </style>

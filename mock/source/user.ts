@@ -106,52 +106,62 @@ const departments = [
     {
         id: 1,
         name: "研发部",
-        companyId: 2
+        companyId: 2,
+        status: true
     },
     {
         id: 2,
         name: "财务部",
-        companyId: 2
+        companyId: 2,
+        status: true
     },
     {
         id: 3,
         name: "测试部",
-        companyId: 2
+        companyId: 2,
+        status: true
     },
     {
         id: 4,
         name: "运维部",
-        companyId: 2
+        companyId: 2,
+        status: true
     },
     {
         id: 5,
         name: "法务部",
-        companyId: 2
+        companyId: 2,
+        status: true
     },
     {
-        id: 1,
+        id: 6,
         name: "研发部",
-        companyId: 3
+        companyId: 3,
+        status: true
     },
     {
-        id: 2,
+        id: 7,
         name: "财务部",
-        companyId: 3
+        companyId: 3,
+        status: true
     },
     {
-        id: 3,
+        id: 8,
         name: "测试部",
-        companyId: 3
+        companyId: 3,
+        status: true
     },
     {
-        id: 4,
+        id: 9,
         name: "运维部",
-        companyId: 3
+        companyId: 3,
+        status: true
     },
     {
-        id: 5,
+        id: 10,
         name: "法务部",
-        companyId: 3
+        companyId: 3,
+        status: true
     }
 ]
 
@@ -284,6 +294,41 @@ export default [
             return {
                 code: 2000,
                 data: struct
+            }
+        }
+    },
+    {
+        url: "/api/department/page",
+        method: "get",
+        response: config => {
+            const { page,limit, company, department } = config.query
+            let list = []
+            for(let department of departments){
+                for(let company of companies){
+                    if(company.id == department.companyId){
+                        department["company"] = company.name
+                        department["address"] = company.address
+                    }
+                }
+                list.push(department)
+            }
+            return {
+                code: 2000,
+                data: {
+                    list: list,
+                    total: departments.length
+                },
+                message: "获取成功"
+            }
+        }
+    },
+    {
+        url: "/api/company/list",
+        method: "get",
+        response: config => {
+            return {
+                code: 2000,
+                data: companies
             }
         }
     }

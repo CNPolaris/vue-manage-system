@@ -6,3 +6,11 @@ export function getDepartStruct(){
         method: 'get',
     })
 }
+
+export function getDepartmentPage(query) {
+    return request({
+        url: "/api/department/page",
+        method: "get",
+        params: { query }
+    })
+}

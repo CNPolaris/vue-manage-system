@@ -52,6 +52,11 @@ export default {
             icon: "el-icon-user",
             index: "/role",
             title: "角色管理"
+          },
+          {
+            icon: "el-icon-office-building",
+            index: "/department",
+            title: "部门管理"
           }
         ];
 
