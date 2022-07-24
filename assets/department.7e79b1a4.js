@@ -1,0 +1,1 @@
+import{s as t}from"./request.2d0c7259.js";function e(){return t({url:"/api/department/struct",method:"get"})}function r(e){return t({url:"/api/department/page",method:"get",params:{query:e}})}export{r as a,e as g};
