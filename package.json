@@ -5,13 +5,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
     "axios": "^0.21.1",
     "element-plus": "^1.0.2-beta.52",
     "md-editor-v3": "^2.2.0",
     "pinia": "^2.0.14",
+    "push-dir": "^0.4.1",
     "vue": "^3.1.2",
     "vue-cropperjs": "^5.0.0",
     "vue-i18n": "^9.0.0",
