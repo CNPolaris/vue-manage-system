@@ -3,7 +3,7 @@ import { viteMockServe } from "vite-plugin-mock"
 import path from "path";
 
 export default {
-    base: '/vue-manage-system/',
+    base: '/',
     plugins: [
         vue(),
         viteMockServe({
